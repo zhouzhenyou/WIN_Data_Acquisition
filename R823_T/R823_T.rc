@@ -1,0 +1,303 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\R823_T.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\R823_T.ico"
+IDI_ICON1               ICON                    "IMG\\logoV.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_R823_T_DIALOG DIALOGEX 0, 0, 477, 258
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "R823_T"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",ID_EXPORT,375,174,50,14
+    PUSHBUTTON      "Cancel",ID_VOL_DETAIL,377,204,50,14
+    PUSHBUTTON      "Button1",IDC_BUTTON_BASIC_SETTING,373,117,50,14
+    PUSHBUTTON      "Button2",IDC_BUTTON_VOL_INQ,374,146,50,14
+    PUSHBUTTON      "Cancel",ID_QUIT,379,227,50,14
+    CONTROL         "",IDC_TABLE_SUM,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | LVS_NOSCROLL | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,124,17,213,68
+    CONTROL         "",IDC_TABLE_CONTENT,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,17,96,328,148
+    CONTROL         "",IDC_PIC_LEFT,"Static",SS_BLACKFRAME,21,18,88,66
+    CONTROL         "",IDC_PIC_RIGHT,"Static",SS_BLACKFRAME,349,17,83,67
+END
+
+IDD_R823_T_DIALOG_PREFERENCE DIALOGEX 0, 0, 317, 249
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "R823_T"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Static",IDC_STATIC_HUGE_DEFICIENCY,25,168,44,8
+    DEFPUSHBUTTON   "OK",ID_SETTING_OK,153,224,50,14
+    PUSHBUTTON      "Cancel",ID_SETTING_CANCEL,218,224,50,14
+    GROUPBOX        "",IDC_SETTING_GROUP,7,7,303,214
+    LTEXT           "Static",IDC_PROJECT_STATIC,18,28,34,8
+    EDITTEXT        IDC_PROJECTNAME_INPUT,60,25,68,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_SIZE_STATIC,17,44,36,8
+    EDITTEXT        IDC_SIZE_INPUT,60,41,68,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_ID_STATIC,17,59,36,8
+    EDITTEXT        IDC_IDENTIFICATION_INPUT,60,57,68,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_VELOCITY_STATIC,17,76,35,8
+    EDITTEXT        IDC_VELOCITY_INPUT,60,74,68,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_FREQUENCE_STATIC,169,28,27,8
+    EDITTEXT        IDC_FREQUENCE_INPUT,214,26,72,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_SENSIOR_STATIC,169,45,26,8
+    EDITTEXT        IDC_SENSIOR_INPUT,214,42,72,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_FILTER_STATIC,169,60,27,8
+    EDITTEXT        IDC_FILTER_INPUT,214,58,71,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_FREQUENCE_STATIC_ITEM,288,29,19,8
+    LTEXT           "Static",IDC_SENSIOR_STATIC_ITEM,288,46,20,8
+    LTEXT           "Static",IDC_FILTER_STATIC_ITEM,288,63,20,8
+    LTEXT           "Static",IDC_PROJECT_STATIC_ITEM,134,28,27,8
+    LTEXT           "Static",IDC_SIZE_STATIC_ITEM,134,44,27,8
+    LTEXT           "Static",IDC_ID_STATIC_ITEM,133,62,27,8,SS_WORDELLIPSIS
+    LTEXT           "Static",IDC_VELOCITY_STATIC_ITEM,133,79,27,8
+    LTEXT           "Static",IDC_STATIC_MID_DEFICIENCY,26,137,43,8
+    EDITTEXT        IDC_MID_DEFICIENCY_INPUT,59,134,46,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_TINY_DEFICIENCY,27,105,30,8
+    EDITTEXT        IDC_TINY_DEFICIENCY_INPUT,59,103,46,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HUGE_DEFICIENCY_INPUT,58,164,48,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_DISTANCE,169,78,44,8
+    EDITTEXT        IDC_DISTANCE_INPUT,214,75,71,14,ES_AUTOHSCROLL
+    GROUPBOX        "Static",IDC_STATIC_GROUP_MID,14,123,287,30
+    GROUPBOX        "Static",IDC_STATIC_GROUP_TINY,14,92,286,30
+    GROUPBOX        "Static",IDC_STATIC_GROUP_HUGE,14,154,286,30
+    LTEXT           "Static",IDC_STATIC_TINY_DEFICIENCY2,124,105,30,8
+    EDITTEXT        IDC_TINY_DEFICIENCY_INPUT2,156,103,46,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_TINY_DEFICIENCY3,217,105,30,8
+    EDITTEXT        IDC_TINY_DEFICIENCY_INPUT3,249,102,46,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_MID_DEFICIENCY2,124,136,43,8
+    EDITTEXT        IDC_MID_DEFICIENCY_INPUT2,156,133,46,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_MID_DEFICIENCY3,218,136,43,8
+    EDITTEXT        IDC_MID_DEFICIENCY_INPUT3,249,133,46,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_HUGE_DEFICIENCY2,123,168,44,8
+    EDITTEXT        IDC_HUGE_DEFICIENCY_INPUT2,156,164,48,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_HUGE_DEFICIENCY3,218,167,44,8
+    EDITTEXT        IDC_HUGE_DEFICIENCY_INPUT3,247,164,48,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_IRON_TRAMP1,26,199,44,8
+    EDITTEXT        IDC_IRON_TRAMP_INPUT,58,196,48,14,ES_AUTOHSCROLL
+    GROUPBOX        "Static",IDC_STATIC_GROUP_IRON_TRAMP,14,185,286,30
+    LTEXT           "Static",IDC_STATIC_IRON_TRAMP2,124,199,44,8
+    EDITTEXT        IDC_IRON_TRAMP_INPUT2,156,196,48,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_STATIC_IRON_TRAMP3,218,198,44,8
+    EDITTEXT        IDC_IRON_TRAMP_INPUT3,248,196,48,14,ES_AUTOHSCROLL
+    LTEXT           "Static",IDC_DISTANCE_STATIC_ITEM,289,78,20,8
+END
+
+IDD_R823_T_DIALOG_QUERY DIALOGEX 0, 0, 350, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "R823_T"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",ID_QUERY_OK,204,153,50,14
+    PUSHBUTTON      "Cancel",ID_QUERY_FAILED,272,153,50,14
+    COMBOBOX        IDC_COMBO_RECORD,57,15,90,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_STATIC_SELECT,23,17,19,8
+    CONTROL         "",IDC_LIST_CONTENT,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,23,36,303,112
+    COMBOBOX        IDC_COMBO_CONTENT,214,16,90,30,CBS_DROPDOWN | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_STATIC_RECORD,176,18,19,8
+    DEFPUSHBUTTON   "OK",ID_BUTTON_EXPORT,139,153,50,14
+END
+
+IDD_R823_T_DIALOG_EXPORT DIALOGEX 0, 0, 252, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "R823_T"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",ID_EXPORT_OK,112,130,50,14
+    PUSHBUTTON      "Cancel",ID_EXPORT_FAILED,180,130,50,14
+    GROUPBOX        "Static",IDC_EXPORT_GROUP,19,15,211,80
+    LTEXT           "Static",IDC_PATH_STATIC,68,109,155,12,0,WS_EX_STATICEDGE
+    PUSHBUTTON      "Button1",IDC_BROWSER,20,108,41,14
+    CONTROL         "Check1",IDC_CHECK_SERIAL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,30,39,10
+    CONTROL         "Check1",IDC_CHECK_TINY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,30,39,10
+    CONTROL         "Check1",IDC_CHECK_MID,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,47,39,10
+    CONTROL         "Check1",IDC_CHECK_HUGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,145,47,39,10
+    CONTROL         "Check1",IDC_CHECK_RANGE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,64,39,10
+    CONTROL         "Check1",IDC_CHECK_VOL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,146,64,39,10
+    CONTROL         "Check1",IDC_CHECK_IRON,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,81,39,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "R823_T.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "R823_T.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_R823_T_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 470
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 251
+    END
+
+    IDD_R823_T_DIALOG_PREFERENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 310
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_R823_T_DIALOG_QUERY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 343
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+
+    IDD_R823_T_DIALOG_EXPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\R823_T.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
