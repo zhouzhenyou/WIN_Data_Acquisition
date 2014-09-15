@@ -25,6 +25,9 @@
 #include <afxdisp.h>        // MFC Automation classes
 #include <afxpriv.h>
 #include <io.h>
+#include <string.h>
+#include <winnetwk.h>
+#include <windows.h>
 #include <stdio.h>   
 #include <stdlib.h>
 #include<direct.h>
@@ -36,8 +39,8 @@
 #include <afxcmn.h>                     // MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
-
-
+#pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "MPR.lib")
 
 #import   "C:\Program Files\Common Files\System\ado\msado27.tlb"    no_namespace   rename("EOF", "adoEOF")
 
@@ -52,6 +55,7 @@
 #define    ID_SUBSCRIBER_LOGO               "\\logoS.bmp"
 #define    ID_SOURCE_CONFIG                 "\\index.rsf"
 #define    ID_FIND_SUFFIX                   "\\*.rsf"
+#define    ID_NET_FILE_SUFFIX               "\\*.rsf"
 #define    ID_PREFERENCE                    "\\preference.rsP"
 
 #define    ID_COLOR_HUGE_DEFICIENCY             RGB(255, 153, 102)

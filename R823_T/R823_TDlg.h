@@ -10,6 +10,7 @@
 #include "R823_TVolDetailQuery.h"
 #include "R823_TExport.h"
 #include "R832File.h"
+#include "CNet.h"
 
 #define ID_BUTTON_BORDER_PERCENT                0.04
 #define ID_BUTTON_WIDTH_GAP_PERCENT             0.025
@@ -92,6 +93,7 @@ private:
 
     CList<record_item, record_item&> CDWORDList;
     CDevice *m_pDevice;
+    CNet *m_pNet;
     
     CR823_TPreferenceDlg m_setting_dlg;
     CR823_TVolQuery m_query_dlg;
