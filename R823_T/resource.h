@@ -13,6 +13,7 @@
 #define IDB_BITMAP1                     129
 #define IDB_BITMAP2                     130
 #define IDI_ICON1                       136
+#define IDD_DIALOG_NET                  137
 #define IDC_BUTTON_BASIC_SETTING        1001
 #define IDC_BUTTON2                     1002
 #define IDC_BUTTON_VOL_INQ              1002
@@ -101,20 +102,30 @@
 #define IDC_STATIC_GROUP_HUGE           1066
 #define IDC_STATIC_IRON_TRAMP1          1067
 #define IDC_IRON_TRAMP_INPUT            1068
+#define IDC_EDIT_ip                     1068
 #define IDC_STATIC_GROUP_IRON_TRAMP     1069
+#define IDC_EDIT_USERNAME               1069
 #define IDC_STATIC_IRON_TRAMP2          1070
+#define IDC_EDIT_PASSWORD               1070
 #define IDC_IRON_TRAMP_INPUT2           1071
+#define IDC_EDIT_FOLDER                 1071
 #define IDC_STATIC_IRON_TRAMP3          1072
+#define IDC_STATIC_IP                   1072
 #define IDC_IRON_TRAMP_INPUT3           1073
+#define IDC_STATIC_IP2                  1073
 #define IDC_DISTANCE_STATIC_ITEM        1074
+#define IDC_STATIC_IP3                  1074
+#define IDC_STATIC_IP4                  1075
+#define ID_NET_OK                       1076
+#define ID_NET_CANCEL                   1077
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        137
+#define _APS_NEXT_RESOURCE_VALUE        138
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1067
+#define _APS_NEXT_CONTROL_VALUE         1078
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -234,6 +234,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\R823_TNet.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\R823_TPreferenceDlg.cpp"
 				>
 			</File>
@@ -357,6 +361,10 @@
 			</File>
 			<File
 				RelativePath=".\R823_TExport.h"
+				>
+			</File>
+			<File
+				RelativePath=".\R823_TNet.h"
 				>
 			</File>
 			<File
