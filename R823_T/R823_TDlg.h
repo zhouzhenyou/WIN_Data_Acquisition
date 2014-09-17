@@ -11,6 +11,7 @@
 #include "R823_TExport.h"
 #include "R832File.h"
 #include "CNet.h"
+#include "R823_TNet.h"
 
 #define ID_BUTTON_BORDER_PERCENT                0.04
 #define ID_BUTTON_WIDTH_GAP_PERCENT             0.025
@@ -63,6 +64,7 @@ public:
 
 // Active on the Dialog
 private:
+    CButton m_net;
     CButton m_preferences;
     CButton m_volInq;
     CButton m_export;
@@ -99,6 +101,7 @@ private:
     CR823_TVolQuery m_query_dlg;
     CR823_TVolDetailQuery m_query_detail_dlg;
     CR823_TExport m_export_dlg;
+    CR823_TNet m_net_dlg;
 
     int currentItem;
     int subvol;
@@ -164,4 +167,6 @@ private:
     void SetRangeColor(record_item arg, int arg_priority);
     void SetPreferenceFromFile(void* para);
     void RefreshSummaryTable();
+public:
+    afx_msg void OnBnClickedButtonNet();
 };

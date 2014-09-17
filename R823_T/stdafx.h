@@ -43,6 +43,8 @@
 #pragma comment(lib, "MPR.lib")
 
 #import   "C:\Program Files\Common Files\System\ado\msado27.tlb"    no_namespace   rename("EOF", "adoEOF")
+#import   <msxml3.dll> named_guids
+using namespace MSXML2;
 
 #define    ID_IMAGE_VENDOR                  0x0001
 #define    ID_IMAGE_SUBSCRIBER              0x0002
@@ -55,7 +57,7 @@
 #define    ID_SUBSCRIBER_LOGO               "\\logoS.bmp"
 #define    ID_SOURCE_CONFIG                 "\\index.rsf"
 #define    ID_FIND_SUFFIX                   "\\*.rsf"
-#define    ID_NET_FILE_SUFFIX               "\\*.rsf"
+#define    ID_NET_FILE_SUFFIX               "\\*.xml"
 #define    ID_PREFERENCE                    "\\preference.rsP"
 
 #define    ID_COLOR_HUGE_DEFICIENCY             RGB(255, 153, 102)

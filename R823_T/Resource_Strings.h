@@ -9,6 +9,7 @@ Author & Date:zhouzhenyou 2014/1/22
 
 
 //Main panel
+#define ID_BUTTON_NET_CAP                       _T("网络设置")
 #define ID_BUTTON_BASIC_SETTING_CAP             _T("基本参数设定")
 #define ID_BUTTON_VOL_INQ_CAP                   _T("盘卷查询")
 #define ID_EXPORT_CAP                           _T("数据导出设置")
