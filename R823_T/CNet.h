@@ -18,16 +18,9 @@ public:
     CNet(CWnd* pParent);
     BOOL OpenPort();
     BOOL ClosePort();
-    BOOL FindFile();
     void SetConfig(NetConfig arg);
 
 private:
-    NetConfig mConfig;
-    NETRESOURCE nr;
-	typedef void * Timer_HANDLE;
-	Timer_HANDLE Timer_Handle;
-
-    
     MSXML2::IXMLDOMDocumentPtr m_ptrDomDocument;
     MSXML2::IXMLDOMElementPtr m_pDocRoot;
     MSXML2::IXMLDOMElementPtr m_pElement;
@@ -35,10 +28,16 @@ private:
     MSXML2::IXMLDOMNamedNodeMapPtr m_pXmlNodeAtts;
     MSXML2::IXMLDOMNodePtr m_pXmlNode;
     MSXML2::IXMLDOMNodePtr m_pXmlNextNode;
+    WIN32_FIND_DATA mlastFile;
+    NetConfig mConfig;
+    NETRESOURCE nr;
+	typedef void * Timer_HANDLE;
+	Timer_HANDLE Timer_Handle;
 
     CWnd* pWnd;
     CWinThread *m_counter_thread;
-    void findnode(MSXML2::IXMLDOMNodeListPtr nodes);
+    static void findnode(MSXML2::IXMLDOMNodeListPtr nodes,LPVOID pParam);  
+    static BOOL FindFile(LPVOID pParam);
     static void CounterThread(LPVOID pParam);
 };
 

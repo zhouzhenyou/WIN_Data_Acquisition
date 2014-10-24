@@ -41,16 +41,22 @@ BOOL CNet::OpenPort()
     //     print   the   error.  
     // 
     
-    if ((res == NO_ERROR) || (res == ERROR_ALREADY_ASSIGNED))
+    //if ((res == NO_ERROR) || (res == ERROR_ALREADY_ASSIGNED))
     {
+        HRESULT hr = m_ptrDomDocument.CreateInstance(_uuidof(MSXML2::DOMDocument30));
+        if (FAILED(hr))
+        {
+            //return FALSE;
+        }
         m_counter_thread = AfxBeginThread((AFX_THREADPROC)CounterThread,this);
         m_counter_thread->ResumeThread();
     }
     return ((res == NO_ERROR) || (res == ERROR_ALREADY_ASSIGNED))?TRUE:FALSE;
 }
 
-void CNet::findnode(MSXML2::IXMLDOMNodeListPtr nodes)
+void CNet::findnode(MSXML2::IXMLDOMNodeListPtr nodes, LPVOID pParam)
 {
+    CNet *p = (CNet *)pParam;
     if (nodes == NULL) return;
     long xmlNodesNum, attsNum, xmltargetNum,xmlValue;
     MSXML2::IXMLDOMNamedNodeMapPtr atts;
@@ -111,10 +117,13 @@ void CNet::findnode(MSXML2::IXMLDOMNodeListPtr nodes)
                         }
                         nodetarget.Release();
                     }
-                    pWnd->SendMessage(MSG_TINY_DEFICIENCY, DS);
-                    pWnd->SendMessage(MSG_MID_DEFICIENCY, DM);
-                    pWnd->SendMessage(MSG_HUGE_DEFICIENCY, DB);
-                    pWnd->SendMessage(MSG_DISTANCE_BOUNDARY);
+                    if ((DS+DM+DB)>0)
+                    {
+                        p->pWnd->PostMessage(MSG_TINY_DEFICIENCY, DS);
+                        p->pWnd->PostMessage(MSG_MID_DEFICIENCY, DM);
+                        p->pWnd->PostMessage(MSG_HUGE_DEFICIENCY, DB);
+                        p->pWnd->PostMessage(MSG_DISTANCE_BOUNDARY);
+                    }
                     subNodes.Release();
                 }
                 nodeprt.Release();
@@ -125,7 +134,7 @@ void CNet::findnode(MSXML2::IXMLDOMNodeListPtr nodes)
         else
         {
             node->get_childNodes(&subNodes);
-            findnode(subNodes);
+            findnode(subNodes, pParam);
             subNodes.Release();
             node.Release();
         }
@@ -133,28 +142,59 @@ void CNet::findnode(MSXML2::IXMLDOMNodeListPtr nodes)
     }
 }
 
-BOOL CNet::FindFile()
+BOOL CNet::FindFile(LPVOID pParam)
 {
+    CNet *p = (CNet *)pParam;
     //CString strFilePath = _T("Q:\\Tencent\\QQ\\*.ini");
-    HRESULT hr = m_ptrDomDocument.CreateInstance(_uuidof(MSXML2::DOMDocument30));
-    if (FAILED(hr))
-    {
-        return FALSE;
-    }
 
-    CString strFilePath = _T("Q:");
-    strFilePath += (TCHAR*)mConfig.folder.AllocSysString();
+    HANDLE file, lastfile, folder, lastfoler; 
+    WIN32_FIND_DATA fileData, lastfileData, folderdata, lastfolderdata;
+
+    CString strFolderPath = _T("E:");
+    strFolderPath += (TCHAR*)p->mConfig.folder.AllocSysString();
+    strFolderPath += ID_NET_FILE_FOLDER;
+    folder = FindFirstFile(strFolderPath, &folderdata);
+    lastfolderdata = folderdata;
+    lastfoler = folder;
+    while(TRUE)
+    {
+        if (folderdata.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+        {
+            if(folderdata.cFileName[0]!='.')
+            {
+                if (folderdata.ftLastWriteTime.dwHighDateTime > lastfolderdata.ftLastWriteTime.dwHighDateTime)
+                {
+                    lastfolderdata = folderdata;
+                    lastfoler = folder;
+                } 
+                else if (folderdata.ftLastWriteTime.dwHighDateTime == lastfolderdata.ftLastWriteTime.dwHighDateTime)
+                {
+                    if (folderdata.ftLastWriteTime.dwLowDateTime > lastfolderdata.ftLastWriteTime.dwLowDateTime)
+                    {
+                        lastfolderdata = folderdata;
+                        lastfoler = folder;
+                    }
+                }
+            }
+        }
+        if(!FindNextFile(folder,&folderdata))
+            break;
+    }
+    FindClose(folder);
+
+    CString strFilePath = _T("E:");
+    strFilePath += (TCHAR*)p->mConfig.folder.AllocSysString();
+    strFilePath += lastfolderdata.cFileName;
     strFilePath += ID_NET_FILE_SUFFIX;
-    HANDLE file, lastfile; 
-    WIN32_FIND_DATA fileData, lastfileData;
     file = FindFirstFile(strFilePath, &fileData);
     lastfileData = fileData;
     lastfile = file;
     BOOL ret = ((signed int)file > 0)? TRUE: FALSE;
     BOOL bWorking = ret;
+    /* Find the last modified file in the specified directory */
     while (bWorking)
     {
-        bWorking = FindNextFile(file, &fileData);
+        bWorking = FindNextFile(file, &fileData);// bWorking indicates whether the file exists or not
         if (bWorking)
         {
             if (fileData.ftLastWriteTime.dwHighDateTime > lastfileData.ftLastWriteTime.dwHighDateTime)
@@ -178,33 +218,47 @@ BOOL CNet::FindFile()
         }
     }
 
+    if (wcscmp(lastfileData.cFileName, p->mlastFile.cFileName) == 0)
+    {
+        return ret;
+    } 
+    else 
+    {
+        p->mlastFile = lastfileData;
+        p->pWnd->PostMessage(MSG_STORE_CLEAR);
+    }
+
     if ((signed int)lastfile > 0)
     {
-        pWnd->SendMessage(MSG_NEW_ITEM);
-        CString target = _T("Q:");
-        target += (TCHAR*)mConfig.folder.AllocSysString();
+        p->pWnd->PostMessage(MSG_NEW_ITEM);
+        CString target = _T("E:");
+        target += (TCHAR*)p->mConfig.folder.AllocSysString();
         target += _T("\\");
         target += lastfileData.cFileName;
-        m_ptrDomDocument->load((TCHAR*)target.AllocSysString());
-        m_pDocRoot = m_ptrDomDocument->GetdocumentElement();
-        m_pDocRoot->get_childNodes(&m_pXmlNodes);
-        findnode(m_pXmlNodes);
-        m_pXmlNodes.Release();
-        m_pDocRoot.Release();
-        m_ptrDomDocument.Release();
+        p->m_ptrDomDocument->load((TCHAR*)target.AllocSysString());
+        p->m_pDocRoot = p->m_ptrDomDocument->GetdocumentElement();
+        p->m_pDocRoot->get_childNodes(&(p->m_pXmlNodes));
+        findnode(p->m_pXmlNodes, pParam);
+        p->m_pXmlNodes.Release();
+        p->m_pDocRoot.Release();
     }
     return ret;
 }
 
 BOOL CNet::ClosePort()
 {
-    //m_counter_thread->SuspendThread();
+    m_counter_thread->SuspendThread();
+    m_ptrDomDocument.Release();
     return TRUE;
 }
 
 void CNet::CounterThread(LPVOID pParam)
 {
-    //FindFile();
+    while (1)
+    {
+        FindFile(pParam);
+        Sleep(10000);
+    }
 }
 
 void CNet::SetConfig(NetConfig arg)

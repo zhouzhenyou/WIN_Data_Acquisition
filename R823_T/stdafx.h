@@ -58,6 +58,7 @@ using namespace MSXML2;
 #define    ID_SOURCE_CONFIG                 "\\index.rsf"
 #define    ID_FIND_SUFFIX                   "\\*.rsf"
 #define    ID_NET_FILE_SUFFIX               "\\*.xml"
+#define    ID_NET_FILE_FOLDER               "\\*.*"
 #define    ID_PREFERENCE                    "\\preference.rsP"
 
 #define    ID_COLOR_HUGE_DEFICIENCY             RGB(255, 153, 102)
