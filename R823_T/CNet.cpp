@@ -150,6 +150,7 @@ BOOL CNet::FindFile(LPVOID pParam)
     HANDLE file, lastfile, folder, lastfoler; 
     WIN32_FIND_DATA fileData, lastfileData, folderdata, lastfolderdata;
 
+    /*Find the last modified directory from which we can get the last xml file*/
     CString strFolderPath = _T("E:");
     strFolderPath += (TCHAR*)p->mConfig.folder.AllocSysString();
     strFolderPath += ID_NET_FILE_FOLDER;

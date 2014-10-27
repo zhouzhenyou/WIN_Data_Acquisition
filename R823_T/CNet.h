@@ -5,6 +5,7 @@
 #include "CDlgconfigure.h"
 #include "CDevice.h"
 
+/* This structure corespond with the setting in the net dialog */
 typedef struct _net_config {
     CString ip;
     CString username;
@@ -29,13 +30,13 @@ private:
     MSXML2::IXMLDOMNodePtr m_pXmlNode;
     MSXML2::IXMLDOMNodePtr m_pXmlNextNode;
     WIN32_FIND_DATA mlastFile;
-    NetConfig mConfig;
+    NetConfig mConfig; //The object which stores the configurations of the net
     NETRESOURCE nr;
 	typedef void * Timer_HANDLE;
 	Timer_HANDLE Timer_Handle;
 
     CWnd* pWnd;
-    CWinThread *m_counter_thread;
+    CWinThread *m_counter_thread;// Update the lastest modified file
     static void findnode(MSXML2::IXMLDOMNodeListPtr nodes,LPVOID pParam);  
     static BOOL FindFile(LPVOID pParam);
     static void CounterThread(LPVOID pParam);
