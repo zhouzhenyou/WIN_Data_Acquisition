@@ -24,10 +24,10 @@ BOOL CNet::OpenPort()
     //   Assign   values   to   the   NETRESOURCE   structure.  
     // 
     memset(&nr, 0, sizeof(NETRESOURCE));
-    nr.dwType   =   RESOURCETYPE_ANY;
-    nr.lpLocalName   =   szLocalName;
-    nr.lpRemoteName   =   szRemoteName;
-    nr.lpProvider   =   NULL;
+    nr.dwType = RESOURCETYPE_ANY;
+    nr.lpLocalName = szLocalName;
+    nr.lpRemoteName = szRemoteName;
+    nr.lpProvider  = NULL;
     dwFlags = CONNECT_UPDATE_PROFILE;
 
     //  
