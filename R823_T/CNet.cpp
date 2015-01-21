@@ -1,5 +1,6 @@
 
 #include "CNet.h"
+#define FOLDER_DIR "E:\\"
 
 CNet::CNet(CWnd* pParent)
 {
@@ -14,7 +15,7 @@ BOOL CNet::OpenPort()
     TCHAR *szRemoteName = (TCHAR*)mConfig.ip.AllocSysString(),
           *szUserName = (TCHAR*)mConfig.username.AllocSysString(),
           *szPassword = (TCHAR*)mConfig.passward.AllocSysString(),
-          *szLocalName = _T("Q:");
+          *szLocalName = _T(FOLDER_DIR);
     /*
     TCHAR szUserName[32] = _T("Administrator"),
           szPassword[32] = _T(""),
@@ -151,7 +152,7 @@ BOOL CNet::FindFile(LPVOID pParam)
     WIN32_FIND_DATA fileData, lastfileData, folderdata, lastfolderdata;
 
     /*Find the last modified directory from which we can get the last xml file*/
-    CString strFolderPath = _T("E:");
+    CString strFolderPath = _T(FOLDER_DIR);
     strFolderPath += (TCHAR*)p->mConfig.folder.AllocSysString();
     strFolderPath += ID_NET_FILE_FOLDER;
     folder = FindFirstFile(strFolderPath, &folderdata);
@@ -183,7 +184,7 @@ BOOL CNet::FindFile(LPVOID pParam)
     }
     FindClose(folder);
 
-    CString strFilePath = _T("E:");
+    CString strFilePath = _T(FOLDER_DIR);
     strFilePath += (TCHAR*)p->mConfig.folder.AllocSysString();
     strFilePath += lastfolderdata.cFileName;
     strFilePath += ID_NET_FILE_SUFFIX;
@@ -232,7 +233,7 @@ BOOL CNet::FindFile(LPVOID pParam)
     if ((signed int)lastfile > 0)
     {
         p->pWnd->PostMessage(MSG_NEW_ITEM);
-        CString target = _T("E:");
+        CString target = _T(FOLDER_DIR);
         target += (TCHAR*)p->mConfig.folder.AllocSysString();
         target += _T("\\");
         target += lastfileData.cFileName;

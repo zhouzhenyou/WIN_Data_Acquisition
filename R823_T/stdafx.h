@@ -95,6 +95,11 @@ using namespace MSXML2;
 #define    ID_STORAGE_EXPORT_SETTING            0x0015
 #define    ID_STORAGE_EXPORT_PATH               0x0016
 
+#define    ID_STORAGE_NET_IP                    0x0017
+#define    ID_STORAGE_NET_USERNAME              0x0018
+#define    ID_STORAGE_NET_PASSWORD              0x0019
+#define    ID_STORAGE_NET_PATH                  0x001A
+
 #define    ID_EXPORT_ID_CHECKED                 0x0001
 #define    ID_EXPORT_VOL_CHECKED                ID_EXPORT_ID_CHECKED<<1
 #define    ID_EXPORT_TINY_CHECKED               ID_EXPORT_VOL_CHECKED<<1

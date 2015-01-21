@@ -47,8 +47,14 @@ public:
     void setIronTrampC(int arg);
     int getDistance();
     void setDistance(int arg);
+
 public:
     int current_subvol;
+
+    CString m_ip;
+    CString m_username;
+    CString m_password;
+    CString m_path;
 private:
     float m_velocity;
     CString m_projectName;
@@ -70,6 +76,7 @@ private:
     int m_iron_tramp_B;
     int m_iron_tramp_C;
     int m_distance;
+
 };
 
 #endif

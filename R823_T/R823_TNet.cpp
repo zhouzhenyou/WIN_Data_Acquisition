@@ -28,7 +28,9 @@ void CR823_TNet::DoDataExchange(CDataExchange* pDX)
 
 BOOL CR823_TNet::OnInitDialog()
 {
-    return CDialog::OnInitDialog();;
+    CDialog::OnInitDialog();
+    UpdateData(FALSE);
+    return TRUE;
 }
 
 void CR823_TNet::OnOK()
